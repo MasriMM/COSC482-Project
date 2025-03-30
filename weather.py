@@ -11,7 +11,7 @@ for LOCATION in locations:
     URL = f"https://api.weatherapi.com/v1/forecast.json?key={API_KEY}&q={LOCATION}&days=3"
     response = requests.get(URL)
     data = response.json()
-
+ 
     for forecast_day in data['forecast']['forecastday']:
         date = forecast_day['date']
         average_temp = forecast_day['day']['avgtemp_c']
@@ -24,4 +24,4 @@ for LOCATION in locations:
 # Print the array or convert it to DataFrame
 df = pd.DataFrame(arr)
 print(df)
-df.to_csv("weather.csv", mode='a', index=False, header=False)
+# df.to_csv("weather.csv", mode='a', index=False, header=False)
